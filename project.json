@@ -1,0 +1,30 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+        "src/LayerMapSource.js",
+        "src/LayerController.js",
+        "src/Pin.js",
+        "src/PinStart.js",
+        "src/PinFinish.js",
+        "src/RouteData.js",
+        "src/Edge.js",
+        "src/Point.js",
+        "src/Car.js",
+        "src/RouteVector.js",
+
+        "src/Util.js"
+    ]
+}
