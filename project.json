@@ -23,7 +23,13 @@
         "src/Edge.js",
         "src/Point.js",
         "src/Car.js",
+        "src/TrafficLight.js",
         "src/RouteVector.js",
+        "src/fuzzy_processing/utils.js",
+        "src/fuzzy_processing/constance.js",
+        "src/fuzzy_processing/fuzzy-sets.js",
+        "src/fuzzy_processing/process.js",
+        "src/fuzzy_processing/simple-rules-reader.js",
 
         "src/Util.js"
     ]

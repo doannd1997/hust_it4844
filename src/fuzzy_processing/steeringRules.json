@@ -1,0 +1,22 @@
+[
+  {
+    "deviation": "deviation_far_left",
+    "steering": "steering_hard_right"
+  },
+  {
+    "deviation": "deviation_left",
+    "steering": "steering_right"
+  },
+  {
+    "deviation": "deviation_middle",
+    "steering": "steering_straight"
+  },
+  {
+    "deviation": "deviation_right",
+    "steering": "steering_left"
+  },
+  {
+    "deviation": "deviation_far_right",
+    "steering": "steering_hard_left"
+  }
+]

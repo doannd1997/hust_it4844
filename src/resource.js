@@ -29,7 +29,9 @@ var res = {
     layerController: "res/Layer/LayerController.json",
     pinStart: "res/pin_start.png",
     pinFinish: "res/pin_finish.png",
-    carIcon: "res/car.png"
+    carIcon: "res/car.png",
+    trafficLight: "res/tl.png",
+    obstacle: "res/box.png"
 };
 
 var g_resources = [];

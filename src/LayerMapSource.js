@@ -10,6 +10,10 @@ var LayerMapSource = cc.Layer.extend({
 
     ctor: function(){
         this._super()
+        this.attr({
+            anchorX: 0,
+            anchorY: 0
+        })
 
         this.bg = ccui.ImageView(res.map_source)
         this.bg.attr({
@@ -17,8 +21,11 @@ var LayerMapSource = cc.Layer.extend({
             y: this.bg.height/2,
             scale: gv.scaleFit(this.bg, cc.winSize)
         })
+        this.__originScale = this.getScale()
         this.addChild(this.bg)
         this.bg.retain()
+        this.edgesContainer = new cc.Node()
+        this.bg.addChild(this.edgesContainer)
 
         this.initPin()
         this.addEventTouch()
@@ -27,11 +34,11 @@ var LayerMapSource = cc.Layer.extend({
     },
     initPin: function(){
         this.pinStart = new PinStart()
-        this.addChild(this.pinStart)
+        this.bg.addChild(this.pinStart)
         this.pinStart.retain()
 
         this.pinFinish = new PinFinish()
-        this.addChild(this.pinFinish)
+        this.bg.addChild(this.pinFinish)
         this.pinFinish.retain()
     },
     addEventTouch: function(){
@@ -66,21 +73,26 @@ var LayerMapSource = cc.Layer.extend({
     },
 
     drawPoint: function(id, location){
-        //var lbl = id + "\n" + location.x.toFixed(2) + "\n" + location.y.toFixed(2)
-        var lbl ="[" + id + "]"
-        var p = ccui.Text(lbl, "Arial", 10)
-        p.setTextColor(cc.color(0, 0, 0))
-        p.setPosition(location)
-        p._id = this.points.length
-        p._x = location.x.toFixed(2)
-        p._y = location.y.toFixed(2)
-        this.bg.addChild(p)
-        p.retain()
-        this.points.push(p)
+        var tl = new TrafficLight(id, location)
+        tl._id = this.points.length
+        tl._x = location.x.toFixed(2)
+        tl._y = location.y.toFixed(2)
+
+        this.bg.addChild(tl)
+        tl.retain()
+        this.points.push(tl)
+    },
+
+    getTrafficLight: function(id){
+        for(var t in this.points){
+            var tl = this.points[t]
+            if (tl.id == id)
+                return tl
+        }
     },
 
     drawEdge: function(_id, _edge){
-        this.bg.addChild(_edge)
+        this.edgesContainer.addChild(_edge)
         _edge.normalize()
         this.edges.push(_edge)
     },
@@ -134,7 +146,9 @@ var LayerMapSource = cc.Layer.extend({
 
         this.highlightEdge()
         this.findWay()
+        this.highlightEdge2()
         this.drive()
+        this.focusCar()
     },
 
     stop: function(){
@@ -144,7 +158,11 @@ var LayerMapSource = cc.Layer.extend({
             this.car.removeFromParent()
             delete  this.car
         }
-
+        this.stopFocusCar()
+        for (var e in this.edges){
+            var edge = this.edges[e]
+            edge.normalize()
+        }
     },
 
     clear: function(){
@@ -191,17 +209,53 @@ var LayerMapSource = cc.Layer.extend({
             }
         }
 
-        //for (var e in this.edges){
-        //    if (e == eS || e == eF)
-        //        this.edges[e].highlight()
-        //    else
-        //        this.edges[e].normalize()
-        //}
+        for (var e in this.edges){
+            if (e == eS || e == eF)
+                this.edges[e].highlight()
+            else
+                this.edges[e].normalize()
+        }
 
         if (eS != -1)
             this.eS = this.edges[eS]
         if (eF != -1)
             this.eF = this.edges[eF]
+    },
+
+    highlightEdge2: function(){
+        for (var e in this.edges){
+            var edge = this.edges[e]
+            var sp = edge.get1stPoint()
+            var tp = edge.get2ndPoint()
+
+            var includeS = false
+            var includeT = false
+            for (var p in this.trace){
+                if (this.trace[p] == sp.getId()){
+                    includeS = true
+                    break
+                }
+            }
+            for (var p in this.trace){
+                if (this.trace[p] == tp.getId()){
+                    includeT = true
+                    break
+                }
+            }
+
+            if (includeS && includeT){
+                edge.highlight()
+            }
+            else{
+                edge.normalize()
+            }
+        }
+    },
+
+    edgeOnWay: function(eIdx){
+        var edge = this.edges[eIdx]
+        let sp = edge.get1stPoint().getId()
+        let tp = edge.get2ndPoint().getId()
     },
 
     findWay: function(){
@@ -305,6 +359,33 @@ var LayerMapSource = cc.Layer.extend({
             this.car.drawVector(this.trace)
             this.car.go()
         }
-    }
+    },
 
+    focusCar: function(){
+        this.setScale(LayerMapSource.SCALE_FOCUS * this.__originScale)
+    },
+
+    stopFocusCar: function(){
+        this.setScale(this.__originScale)
+        this.attr({
+            x: 0,
+            y: 0
+        })
+    },
+
+    getFocusScale: function(){
+        return this.getScale()
+    },
+
+    findEdgeWithST: function(s, t){
+        for (var e in this.edges){
+            var edge = this.edges[e]
+            if (edge.matchEdge(s, t)){
+                return edge
+            }
+        }
+    }
 })
+
+
+LayerMapSource.SCALE_FOCUS = 2

@@ -13,6 +13,8 @@ var Edge = cc.Node.extend({
             new Point(points[0], gv.route.points[points[0]]),
             new Point(points[1], gv.route.points[points[1]])
         ]
+
+        this.schedule(this.update, 1)
     },
     show: function(color){
         this.removeChildByTag(Edge.TAG.EDGE)
@@ -57,7 +59,7 @@ var Edge = cc.Node.extend({
 
     highlight: function(){
         this.show(Edge.HIGHLIGHT_COLOR)
-        //this.setLocalZOrder(1000)
+        this.setLocalZOrder(1000)
     },
 
     normalize: function(){
@@ -70,6 +72,46 @@ var Edge = cc.Node.extend({
 
     get2ndPoint: function(){
         return this.points[1]
+    },
+
+    matchEdge: function(s, t){
+        return (this.points[0].id == s._id && this.points[1].id == t._id) || (this.points[0].id == t._id && this.points[1].id == s._id)
+    },
+
+    addObstacle: function(){
+        this.obstacle = cc.Node()
+        var indicator = cc.Sprite(res.obstacle)
+        indicator.attr({
+            anchorX: 0.5,
+            anchorY: 0.5,
+            scale: 0.3
+        })
+        this.obstacle.addChild(indicator)
+        this.obstacle.attr({
+            x: (this.points[0].x + this.points[1].x)/2,
+            y: (this.points[0].y + this.points[1].y)/2
+        })
+        this.obstacle.timeLife = 5
+        this.addChild(this.obstacle)
+        this.obstacle.retain()
+    },
+
+    update: function(){
+        if (cc.sys.isObjectValid(this.obstacle)){
+            this.obstacle.timeLife--
+            if (this.obstacle.timeLife <= 0){
+                this.obstacle.removeFromParent()
+                delete this.obstacle
+            }
+        }
+    },
+
+    isObstacleExist: function(){
+        return cc.sys.isObjectValid(this.obstacle)
+    },
+
+    getObstacle: function(){
+        return this.obstacle
     }
 })
 

@@ -20,6 +20,23 @@ gv.distancePoint2Point = function(p0, p1){
     return Math.sqrt(Math.pow(p0.x-p1.x, 2) + Math.pow(p0.y-p1.y, 2))
 }
 
+gv.addAttr = function(target, source){
+    var sk = Object.keys(source)
+    for (var k in sk){
+        target[sk[k]] = source[sk[k]]
+    }
+    return target
+}
+
+gv.objectValues = function(obj){
+    var values = []
+    var keys = Object.keys(obj)
+    for (var k in keys){
+        values[values.length] = obj[keys[k]]
+    }
+    return values
+}
+
 
 // return -1 if a out-side b; 0 if a between b&c; 1 if a out-size c
 gv.relativePosition = function(a, b, c){

@@ -1,0 +1,246 @@
+[
+  {
+    "distance_light": "distance_light_far",
+    "deviation": "deviation_middle",
+    "speed": "speed_medium"
+  },
+  {
+    "distance_light": "distance_light_far",
+    "deviation": "deviation_left",
+    "speed": "speed_slow"
+  },
+  {
+    "distance_light": "distance_light_far",
+    "deviation": "deviation_right",
+    "speed": "speed_slow"
+  },
+  {
+    "distance_light": "distance_light_far",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "distance_light": "distance_light_far",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_green",
+    "deviation": "deviation_middle",
+    "speed": "speed_medium"
+  },
+  {
+    "light_status": "light_status_green",
+    "deviation": "deviation_left",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_green",
+    "deviation": "deviation_right",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_green",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_green",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_middle",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_yellow",
+    "distance_light": "distance_light_near",
+    "speed": "speed_stop"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_middle",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_red",
+    "distance_light": "distance_light_near",
+    "speed": "speed_stop"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_middle",
+    "speed": "speed_medium"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_left",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_right",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_near",
+    "deviation": "deviation_middle",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_near",
+    "deviation": "deviation_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_near",
+    "deviation": "deviation_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_near",
+    "deviation": "deviation_far_left",
+    "speed": "speed_stop"
+  },
+  {
+    "light_status": "light_status_less_green",
+    "distance_light": "distance_light_near",
+    "deviation": "deviation_far_right",
+    "speed": "speed_stop"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_middle",
+    "speed": "speed_slow"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_medium",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "light_status": "light_status_less_red",
+    "distance_light": "distance_light_near",
+    "speed": "speed_stop"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_near",
+    "speed": "speed_stop"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_medium",
+    "deviation": "deviation_far_left",
+    "speed": "speed_slower"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_medium",
+    "deviation": "deviation_far_right",
+    "speed": "speed_slower"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_medium",
+    "deviation": "deviation_left",
+    "speed": "speed_slow"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_medium",
+    "deviation": "deviation_right",
+    "speed": "speed_slow"
+  },
+  {
+    "distance_obstacle": "distance_obstacle_medium",
+    "deviation": "deviation_middle",
+    "speed": "speed_medium"
+  }
+]
